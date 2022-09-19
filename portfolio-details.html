@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Alper Temel</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <main id="main">
+
+    <!-- ======= Portfolio Details ======= -->
+    <div id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8">
+            <h2 class="portfolio-title"><span id="title"></span></h2>
+              
+              <span id="photo"></span>
+
+          </div>
+
+          <div class="col-lg-4 portfolio-info">
+            <h3 style="font-size: 2.0em;"><b><span id="rank"></span></b></h3>
+            <ul>
+              <li style="font-size: 1.5em;"><strong>Category</strong>: <span id="pcategory"></span></li>
+              <li style="font-size: 1.5em;"><strong>Project date</strong>: <span id="pdate"></span></li>
+            </ul>
+            <p style="font-size: 1.5em;">
+              <span id="pdesc"></span>
+            </p>
+ 
+          </div>
+
+        </div>
+
+      </div>
+    </div><!-- End Portfolio Details -->
+
+  </main><!-- End #main -->
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    perm_file = null;
+    let file = localStorage.getItem("file");
+    if (file == null) {
+      document.getElementById("file").innerHTML = file;
+      perm_file == file;
+    }
+    if (perm_file != null){
+      file = perm_file;
+    }
+    
+    const titles = [
+      "BEST Istanbul Datathon - Borusan EnBW Enerji",
+      "Data & Analytics Challange - Coca Cola Project",
+      "DataThon 2022",
+      "Data & Analytics Challange - Eczacibasi Project",
+      "Borusan Otomotiv Datathon",
+      "Huawei Coding Marathon",
+      "EnerjiSA Üretim Hackathon"
+    ];
+    document.getElementById("title").innerHTML = titles[parseInt(file)-1];
+
+    const ranks = [
+      "1ST PLACE",
+      "2ND PLACE",
+      "3RD PLACE",
+      "3RD PLACE",
+      "3RD PLACE",
+      "4TH PLACE",
+      "5TH PLACE"
+    ];
+    document.getElementById("rank").innerHTML = ranks[parseInt(file)-1];
+
+    const pdates = [
+      "06/2022",
+      "03/2022",
+      "04/2022",
+      "03/2021",
+      "07/2022",
+      "05/2022",
+      "05/2022"
+    ];
+    document.getElementById("pdate").innerHTML = pdates[parseInt(file)-1];
+
+    const pcategories = [
+      "Datathon",
+      "Data & Analytics Challange",
+      "Datathon",
+      "Data & Analytics Challange",
+      "Datathon",
+      "Coding Marathon",
+      "Hackathon"
+    ];
+    document.getElementById("pcategory").innerHTML = pcategories[parseInt(file)-1];
+
+    const pdescs = [
+      "Offline submission, wind turbine power prediction",
+      "Coca Cola products demand forecasting.",
+      "Predicting supermarket item prices by BTK Akademi, Google Turkey, Girişimcilik Vakfı, KVKK",
+      "Tile demand forecasting.",
+      "Predict BMW, MINI, Land Rover brand vehicle parts malfunctions will occur.",
+      "Estimating the traffic density and the amount of data transfer that will take place on the 5G satellites.",
+      "Wind turbine power modelling using Balikesir wind turbines with weather and sensor data."
+    ];
+    document.getElementById("pdesc").innerHTML = pdescs[parseInt(file)-1];
+
+    const photos = [
+      ["assets/img/1/1.jpg","assets/img/1/2.jpg","assets/img/1/3.png"],
+      ["assets/img/2/1.jpg"],
+      ["assets/img/3/1.jpg","assets/img/3/2.jpg","assets/img/3/3.jpg","assets/img/3/4.jpg"],
+      ["assets/img/4/1.jpg"],
+      ["assets/img/5/1.jpg"],
+      ["assets/img/6/1.JPG","assets/img/6/2.JPG","assets/img/6/3.JPG"],
+      ["assets/img/7/1.jpg","assets/img/7/2.jpg","assets/img/7/3.jpg","assets/img/7/4.jpg"]
+    ];
+
+    let result_text = "";
+    
+    for (const element of photos[parseInt(file)-1]) {
+      new_slide = "<img style='width: 100%;height: auto;object-fit: cover;object-position: center; margin-bottom: 40px;' src='"
+                                                    +element+
+                                                  "' alt=''>";
+      result_text = result_text + new_slide;
+    }
+
+    document.getElementById("photo").innerHTML = result_text;
+  </script>
+
+  
+
+</body>
+
+</html>
